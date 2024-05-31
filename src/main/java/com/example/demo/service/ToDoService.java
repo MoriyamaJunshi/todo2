@@ -26,4 +26,8 @@ public class ToDoService {
 		return toDoRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("id:" + id + "は見つかりません。"));
 	}
+
+	public void deleteTodo(Long id) {
+		toDoRepository.deleteById(id);
+	}
 }
