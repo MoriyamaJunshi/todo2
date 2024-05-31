@@ -30,4 +30,10 @@ public class ToDoService {
 	public void deleteTodo(Long id) {
 		toDoRepository.deleteById(id);
 	}
+	
+	public void updateTodo(Long id, ToDo updateTodo) {
+		if(toDoRepository.findById(id).get() != null) {
+			toDoRepository.save(updateTodo);
+		}
+	}
 }
