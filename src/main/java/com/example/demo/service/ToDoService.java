@@ -15,6 +15,15 @@ public class ToDoService {
 	private ToDoRepository toDoRepository;
 	
 	public List<ToDo>getAllTodos(){
-		return toDoRepository.findAll();
+		return toDoRepository.findAll();	
+	}
+	
+	public ToDo addTodo(ToDo toDo) {
+		return toDoRepository.save(toDo);
+	}
+	
+	public ToDo getTodoById(Long id) {
+		return toDoRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("id:" + id + "は見つかりません。"));
 	}
 }
